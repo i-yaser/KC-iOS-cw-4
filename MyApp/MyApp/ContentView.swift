@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var grade = ""
     @State var grade90 = ""
+    @State var grade80 = ""
     var body: some View {
         ZStack{
             Color.blue
@@ -39,7 +40,7 @@ struct ContentView: View {
                     .background(.red)
                     .onTapGesture {
                         if (Double(grade) ?? 0) >= 90 {
-                            grade90 = "❤️‍🔥امتياز❤️‍🔥"
+                            grade90 =  "❤️‍🔥امتياز❤️‍🔥"
                         }
                         else if (Double(grade) ?? 0) >= 80 {
                             grade90 = "جيد جدا💙"
@@ -47,13 +48,37 @@ struct ContentView: View {
                         else if (Double(grade) ?? 0) >= 70 {
                             grade90 = "جيد💛"
                         }
+                        else if (Double(grade) ?? 0) >= 60 {
+                            grade90 = "مقبول❤️‍🩹"
+                        }
                         else {
                             grade90 = "رسوب💔"
                         }
+                        if (Int(grade) ?? 0) >= 90 {
+                            grade80 =  "A"
+                        }
+                        else if (Int(grade) ?? 0) >= 80 {
+                            grade80 = "B"
+                        }
+                        else if (Int(grade) ?? 0) >= 70 {
+                            grade80 = "C"
+                        }
+                        else if (Int(grade) ?? 0) >= 60 {
+                            grade80 = "jii"
+                        }
+                        else {
+                            grade80 = "F"
+                        }
+                        
                     }
-                 
+              
                 Text("👆🏻اضغط هنا👆🏻")
                 Spacer()
+                
+                
+                Image(grade80)
+                    .resizable()
+                    
                 
                 Text(grade90)
                     .font(.largeTitle)
